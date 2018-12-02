@@ -32,7 +32,7 @@ time.sleep(2.0)
 fps = FPS().start()
 
 api = False
-
+url_api = ""
 
 while True:
 	frame = vs.read()
@@ -78,8 +78,7 @@ while True:
 				# Colocar função de enviar pro BD ou pra API aqui
 				ms = int(round(time.time() * 1000))
 				
-				# url = "http://elifinho-api.herokuapp.com/professores/{}".format(name)
-				url = "https://elifinho-api.herokuapp.com/professores/Flávio-Medeiros"
+				url = "{}{}".format(url_api, name)
 				payload = { "professor": { "lastseen": ms } }
 				
 				r = requests.put(url, data = json.dumps(payload))
